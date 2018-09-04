@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: strucchange_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/strucchange_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/strucchange/strucchange_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: stats4, car, dynlm, e1071, foreach, lmtest, mvtnorm, tseries
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
